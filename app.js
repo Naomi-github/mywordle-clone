@@ -61,8 +61,6 @@ let currentRow = 0
 let currentTile = 0
 let isGameOver = false
 
-/* creates the grid - creates 6 empty rows (from the above array) 'rowElement', then each row has 6 empty tiles within 'tile' */
-
 guessRows.forEach((guessRow, guessRowIndex) => {
   const rowElement = document.createElement('div')
   rowElement.setAttribute('id', 'guessRow-' + guessRowIndex)
@@ -75,8 +73,6 @@ guessRows.forEach((guessRow, guessRowIndex) => {
   tileDisplay.append(rowElement)
 })
 
-/* creates the keyboard to type the buttons - from the above elements */
-
 keys.forEach(key => {
   const buttonElement = document.createElement('button')
   buttonElement.textContent = key
@@ -84,8 +80,6 @@ keys.forEach(key => {
   buttonElement.addEventListener('click', () => handleClick(key))
   keyboard.append(buttonElement)
 })
-
-/* the key clicked, then grabs the letter and puts it into ' letter' */
 
 const handleClick = (letter) => {
   if (!isGameOver) {
@@ -100,8 +94,6 @@ const handleClick = (letter) => {
     addLetter(letter)
   }
 }
-
-/* grabs the 'letter' and adds it to the current tile */
 
 const addLetter = (letter) => {
   if (currentTile < 5 && currentRow < 6) {
@@ -162,14 +154,10 @@ const checkRow = () => {
     setTimeout(() => messageDisplay.removeChild(messageElement), 5000)
 }
 
-  /* checks the tile data against the correct answer and colours the keyboard if correct*/
-
   const addColorToKey = (keyLetter, color) => {
     const key = document.getElementById(keyLetter)
     key.classList.add(color)
 }
-
-  /* gets the tile data from the guess and see if any of them are correct, or in the right place. puts the guess into a new array, checks the word against the wordle word, if correct green, if rigth letter wrong place yellow. if colour changes, it is removed from the array so its not duplicated  */
 
   const flipTile = () => {
     const rowTiles = document.querySelector('#guessRow-' + currentRow).childNodes

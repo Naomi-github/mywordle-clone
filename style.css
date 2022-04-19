@@ -102,8 +102,6 @@ body {
 }
 
 
-/* order of this css is important - if not in this order may missaign colour as they are all important */
-
 .grey-overlay {
   background-color: #3a3a3c !important;
   border:none !important;
